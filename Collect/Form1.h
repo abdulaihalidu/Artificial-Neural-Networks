@@ -589,7 +589,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Void perceptronToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		
 		int step = 0; // number of iterations
-		float c = 1.0f;
+		//float c = 1.0f;
 		float totalErr ;
 
 		// clear chart
@@ -606,14 +606,14 @@ namespace CppCLRWinformsProjekt {
 			for (int i = 0; i < numSample; i++) {
 				draw_sample(Samples[i * inputDim + 0] + pictureBox1->Width / 2, -Samples[i * inputDim + 1] + pictureBox1->Height / 2, targets[i]);
 			}
-			LineCiz(Weights, bias, numClass, c);
-		}while(totalErr > 0 && step < 2000);
+			LineCiz(Weights, bias, numClass, 1.0);
+		}while(totalErr > 0 && step < 5000);
 		
 		} 
 
 private: System::Void deltaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	int step = 0; // number of iterations
-	float c = 1.0f;
+	//float c = 1.0f;
 	float totalErr;
 	float* tempSamples = new float[numSample * inputDim];
 	tempSamples = normalizeData(Samples, numSample, inputDim);
@@ -631,13 +631,13 @@ private: System::Void deltaToolStripMenuItem_Click(System::Object^ sender, Syste
 		for (int i = 0; i < numSample; i++) {
 			draw_sample(tempSamples[i * inputDim + 0] + pictureBox1->Width / 2, -tempSamples[i * inputDim + 1] + pictureBox1->Height / 2, targets[i]);
 		}
-		LineCiz(Weights, bias, numClass, c);
+		LineCiz(Weights, bias, numClass, 1.0);
 	} while (totalErr > 0.01 && step < 5000);
 	textBox1->Text = "Cycles: " + step + "     Total Error: " + totalErr;
 }
 private: System::Void multiCategoryPerceptronToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	int step = 0; // number of iterations
-	float c = 0.5f;
+	//float c = 1.0f;
 	float totalErr;
 	float* tempSamples = new float[numSample * inputDim];
 	//tempSamples = normalizeData(Samples, numSample, inputDim);
@@ -656,13 +656,13 @@ private: System::Void multiCategoryPerceptronToolStripMenuItem_Click(System::Obj
 		for (int i = 0; i < numSample; i++) {
 			draw_sample(Samples[i * inputDim + 0] + pictureBox1->Width / 2, -Samples[i * inputDim + 1] + pictureBox1->Height / 2, targets[i]);
 		}
-		LineCiz(Weights, bias, numClass, c);
-	} while (totalErr > 0 && step < 2000);
+		LineCiz(Weights, bias, numClass, 1.0);
+	} while (totalErr > 0 && step < 5000);
 
 }
 private: System::Void multiCategoryDeltaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	int step = 0; // number of iterations
-	float c = 1.0f;
+	//float c = 1.0f;
 	float totalErr;
 	float* tempSamples = new float[numSample * inputDim];
 	tempSamples = normalizeData(Samples, numSample, inputDim);
@@ -680,8 +680,8 @@ private: System::Void multiCategoryDeltaToolStripMenuItem_Click(System::Object^ 
 		for (int i = 0; i < numSample; i++) {
 			draw_sample(tempSamples[i * inputDim + 0] + pictureBox1->Width / 2, -tempSamples[i * inputDim + 1] + pictureBox1->Height / 2, targets[i]);
 		}
-		LineCiz(Weights, bias, numClass, c);
-	} while (totalErr > 0.01 && step < 2000);
+		LineCiz(Weights, bias, numClass, 1.0);
+	} while (totalErr > 0.01 && step < 5000);
 	textBox1->Text = "Cycles: " + step + "     Total Error: " + totalErr;
 }
 };

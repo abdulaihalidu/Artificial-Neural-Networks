@@ -18,11 +18,11 @@ D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(120,20): wa
 D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(165,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(173,47): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(179,87): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(180,56): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(213,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(262,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(269,49): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(276,90): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(181,56): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(212,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(262,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(269,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(276,96): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(277,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\pch.cpp(137): warning C4700: uninitialized local variable 'totalErr' used
   AssemblyInfo.cpp
