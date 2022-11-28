@@ -9,3 +9,7 @@ C:\DERSLER\BSc\Neural_Net\Coding_2021\Baslangic_BSc\Collect_2\Collect\x64\Debug\
 D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\x64\Debug\Collect.Form1.resources
 D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\x64\Debug\Collect.vcxproj.GenerateResource.cache
 D:\KTÜ\4. Yıl\Artificial Neural Networks\Collect_2\Collect\x64\Debug\Collect.vcxproj.AssemblyReference.cache
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\x64\Debug\Collect.vcxproj.AssemblyReference.cache
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\x64\Debug\Collect.vcxproj.SuggestedBindingRedirects.cache
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\x64\Debug\Collect.Form1.resources
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\x64\Debug\Collect.vcxproj.GenerateResource.cache

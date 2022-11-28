@@ -10,10 +10,7 @@
 
 // Bei der Verwendung vorkompilierter Header ist diese Quelldatei für eine erfolgreiche Kompilierung erforderlich.
 
-double GlobalMx;
-double GlobalMy;
-double Globalx_sDeviation;
-double Globaly_sDeviation;
+
 
 int sign(double net) {
 	return net >= 0.0 ? 1 : -1;
@@ -25,7 +22,7 @@ double bipolar_continous_activation_fun(double net) {
 	return fnet;
 }
 
-float* normalizeData(float* Samples, int numSample, int inputDim) {
+float* normalizeData(float* Samples, int numSample, int inputDim, double mean_x, double mean_y, double std_x, double std_y) {
 	float* tempSamples = new float[numSample*inputDim];
 
 	double Mx = 0;
@@ -54,10 +51,10 @@ float* normalizeData(float* Samples, int numSample, int inputDim) {
 	x_sDeviation = sqrt(x_sDeviation / number);
 	y_sDeviation = sqrt(y_sDeviation / number);
 
-	Globalx_sDeviation = x_sDeviation;
-	Globaly_sDeviation = y_sDeviation;
-	GlobalMx = Mx;
-	GlobalMy = My;
+	std_x = x_sDeviation;
+	std_y = y_sDeviation;
+	mean_x = Mx;
+	mean_y = My;
 
 	for (int i = 0; i <= ((numSample * inputDim) - 2); (i += inputDim)) {
 		tempSamples[i] = (tempSamples[i] - Mx) / x_sDeviation;
@@ -274,8 +271,8 @@ float multiDeltaTraining(float* Samples, float* Weights, float* targets, float* 
 		for (int k = 0; k < K; k++) {
 			for (int j = 0; j < inputDim; j++) {
 				Weights[2*k + j] += c * (desired[k] - output[k]) * fnetprime[k] * Samples[s * inputDim + j];
-				bias[k] += c * (desired[k] - output[k]) * fnetprime[k];
 			}
+				bias[k] += c * (desired[k] - output[k]) * fnetprime[k];
 		}
 		totalErr += err;
 		for (int n = 0; n < K; n++) {
@@ -284,3 +281,4 @@ float multiDeltaTraining(float* Samples, float* Weights, float* targets, float* 
 	}
 	return totalErr;
 }
+

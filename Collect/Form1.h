@@ -27,6 +27,7 @@ namespace CppCLRWinformsProjekt {
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
+			Initialize();
 		}
 
 	protected:
@@ -58,6 +59,24 @@ namespace CppCLRWinformsProjekt {
 		/// User Defined Variables
 		int  numClass = 0, numSample = 0, inputDim = 2;
 		float *Samples, *targets, *Weights, *bias;
+		cli::array<Color>^ color;
+		double mean_x;
+		double mean_y;
+		double std_x;
+		double std_y;
+	private: System::Windows::Forms::ToolStripMenuItem^ testToolStripMenuItem;
+		   float* tempsamples;   // array to hold normalized data
+
+		// member function to make initialization for testing
+		void Initialize() {
+			color = gcnew cli::array<Color>(10);
+			color[0] = Color::Black; color[1] = Color::Red; color[2] = Color::Blue; color[3] = Color::Green; color[4] = Color::Yellow;
+			color[5] = Color::Cyan; color[6] = Color::Indigo; color[7] = Color::Purple; color[8] = Color::Firebrick; color[9] = Color::OrangeRed;
+
+			Test_Sample_Size = 4;
+			Test_Output = new int[((pictureBox1->Width / Test_Sample_Size) + 1) * ((pictureBox1->Height / Test_Sample_Size) + 1)];
+
+		}
 
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ fileToolStripMenuItem;
@@ -73,6 +92,19 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::ToolStripMenuItem^ deltaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ multiCategoryPerceptronToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ multiCategoryDeltaToolStripMenuItem;
+	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::ComboBox^ MaxCycle;
+
+
+
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::ComboBox^ comboBoxMaxError;
+
+	private: System::Windows::Forms::Button^ button2;
+
+
+
 
 		   /// </summary>
 		System::ComponentModel::Container ^components;
@@ -84,9 +116,9 @@ namespace CppCLRWinformsProjekt {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -105,25 +137,33 @@ namespace CppCLRWinformsProjekt {
 			this->perceptronToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deltaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->multiCategoryPerceptronToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->multiCategoryDeltaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->testToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->multiCategoryDeltaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->MaxCycle = (gcnew System::Windows::Forms::ComboBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->comboBoxMaxError = (gcnew System::Windows::Forms::ComboBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
+			this->groupBox3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->pictureBox1->Location = System::Drawing::Point(35, 83);
+			this->pictureBox1->Location = System::Drawing::Point(17, 100);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(2139, 1378);
+			this->pictureBox1->Size = System::Drawing::Size(2139, 1306);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::pictureBox1_Paint);
@@ -162,7 +202,7 @@ namespace CppCLRWinformsProjekt {
 			this->label1->Location = System::Drawing::Point(288, 55);
 			this->label1->Margin = System::Windows::Forms::Padding(8, 0, 8, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(195, 32);
+			this->label1->Size = System::Drawing::Size(194, 32);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Num of Class";
 			// 
@@ -198,7 +238,7 @@ namespace CppCLRWinformsProjekt {
 			this->label2->Location = System::Drawing::Point(261, 55);
 			this->label2->Margin = System::Windows::Forms::Padding(8, 0, 8, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(103, 32);
+			this->label2->Size = System::Drawing::Size(102, 32);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Target";
 			// 
@@ -222,7 +262,7 @@ namespace CppCLRWinformsProjekt {
 			this->label3->Location = System::Drawing::Point(2339, 582);
 			this->label3->Margin = System::Windows::Forms::Padding(8, 0, 8, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(93, 32);
+			this->label3->Size = System::Drawing::Size(92, 32);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"label3";
 			// 
@@ -237,7 +277,7 @@ namespace CppCLRWinformsProjekt {
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(16, 5, 0, 5);
-			this->menuStrip1->Size = System::Drawing::Size(1541, 58);
+			this->menuStrip1->Size = System::Drawing::Size(3844, 55);
 			this->menuStrip1->TabIndex = 4;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -248,7 +288,7 @@ namespace CppCLRWinformsProjekt {
 					this->saveDataToolStripMenuItem
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(87, 48);
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(87, 45);
 			this->fileToolStripMenuItem->Text = L"File";
 			// 
 			// readDataToolStripMenuItem
@@ -267,9 +307,12 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// processToolStripMenuItem
 			// 
-			this->processToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->singleLayerNeuralNetworkToolStripMenuItem });
+			this->processToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->singleLayerNeuralNetworkToolStripMenuItem,
+					this->testToolStripMenuItem
+			});
 			this->processToolStripMenuItem->Name = L"processToolStripMenuItem";
-			this->processToolStripMenuItem->Size = System::Drawing::Size(143, 48);
+			this->processToolStripMenuItem->Size = System::Drawing::Size(143, 45);
 			this->processToolStripMenuItem->Text = L"Process";
 			// 
 			// singleLayerNeuralNetworkToolStripMenuItem
@@ -303,6 +346,20 @@ namespace CppCLRWinformsProjekt {
 			this->multiCategoryPerceptronToolStripMenuItem->Text = L"Multi Category Perceptron";
 			this->multiCategoryPerceptronToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::multiCategoryPerceptronToolStripMenuItem_Click);
 			// 
+			// multiCategoryDeltaToolStripMenuItem
+			// 
+			this->multiCategoryDeltaToolStripMenuItem->Name = L"multiCategoryDeltaToolStripMenuItem";
+			this->multiCategoryDeltaToolStripMenuItem->Size = System::Drawing::Size(534, 54);
+			this->multiCategoryDeltaToolStripMenuItem->Text = L"Multi Category Delta";
+			this->multiCategoryDeltaToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::multiCategoryDeltaToolStripMenuItem_Click);
+			// 
+			// testToolStripMenuItem
+			// 
+			this->testToolStripMenuItem->Name = L"testToolStripMenuItem";
+			this->testToolStripMenuItem->Size = System::Drawing::Size(559, 54);
+			this->testToolStripMenuItem->Text = L"Test";
+			this->testToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::testToolStripMenuItem_Click);
+			// 
 			// openFileDialog1
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
@@ -318,35 +375,100 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// chart1
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chart1->Legends->Add(legend1);
+			chartArea2->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chart1->Legends->Add(legend2);
 			this->chart1->Location = System::Drawing::Point(2344, 723);
 			this->chart1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->chart1->Name = L"chart1";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series1->Color = System::Drawing::Color::Red;
-			series1->Legend = L"Legend1";
-			series1->Name = L"Error";
-			this->chart1->Series->Add(series1);
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series2->Color = System::Drawing::Color::Red;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Error";
+			this->chart1->Series->Add(series2);
 			this->chart1->Size = System::Drawing::Size(909, 589);
 			this->chart1->TabIndex = 6;
 			this->chart1->Text = L"chart1";
 			// 
-			// multiCategoryDeltaToolStripMenuItem
+			// groupBox3
 			// 
-			this->multiCategoryDeltaToolStripMenuItem->Name = L"multiCategoryDeltaToolStripMenuItem";
-			this->multiCategoryDeltaToolStripMenuItem->Size = System::Drawing::Size(534, 54);
-			this->multiCategoryDeltaToolStripMenuItem->Text = L"Multi Category Delta";
-			this->multiCategoryDeltaToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::multiCategoryDeltaToolStripMenuItem_Click);
+			this->groupBox3->Controls->Add(this->label5);
+			this->groupBox3->Controls->Add(this->MaxCycle);
+			this->groupBox3->Controls->Add(this->label4);
+			this->groupBox3->Controls->Add(this->comboBoxMaxError);
+			this->groupBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->groupBox3->Location = System::Drawing::Point(3084, 119);
+			this->groupBox3->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Padding = System::Windows::Forms::Padding(8, 7, 8, 7);
+			this->groupBox3->Size = System::Drawing::Size(533, 238);
+			this->groupBox3->TabIndex = 7;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Network Config";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(288, 173);
+			this->label5->Margin = System::Windows::Forms::Padding(8, 0, 8, 0);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(154, 32);
+			this->label5->TabIndex = 3;
+			this->label5->Text = L"Max Cycle";
+			// 
+			// MaxCycle
+			// 
+			this->MaxCycle->FormattingEnabled = true;
+			this->MaxCycle->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"100", L"500", L"1000", L"2500", L"5000" });
+			this->MaxCycle->Location = System::Drawing::Point(27, 166);
+			this->MaxCycle->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
+			this->MaxCycle->Name = L"MaxCycle";
+			this->MaxCycle->Size = System::Drawing::Size(212, 39);
+			this->MaxCycle->TabIndex = 1;
+			this->MaxCycle->Text = L"3000";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(288, 55);
+			this->label4->Margin = System::Windows::Forms::Padding(8, 0, 8, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(163, 32);
+			this->label4->TabIndex = 1;
+			this->label4->Text = L"1/MaxError";
+			// 
+			// comboBoxMaxError
+			// 
+			this->comboBoxMaxError->FormattingEnabled = true;
+			this->comboBoxMaxError->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"10", L"50", L"100", L"500", L"1000" });
+			this->comboBoxMaxError->Location = System::Drawing::Point(27, 48);
+			this->comboBoxMaxError->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
+			this->comboBoxMaxError->Name = L"comboBoxMaxError";
+			this->comboBoxMaxError->Size = System::Drawing::Size(212, 39);
+			this->comboBoxMaxError->TabIndex = 0;
+			this->comboBoxMaxError->Text = L"100";
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(3084, 367);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(284, 88);
+			this->button2->TabIndex = 8;
+			this->button2->Text = L"Reset Network";
+			this->button2->UseMnemonic = false;
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1541, 844);
+			this->ClientSize = System::Drawing::Size(3844, 1711);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label3);
@@ -366,6 +488,8 @@ namespace CppCLRWinformsProjekt {
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
+			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -447,6 +571,8 @@ namespace CppCLRWinformsProjekt {
 				}//else of if (Etiket ...
 			}//else
 	    }//pictureMouseClick
+
+		int Test_Sample_Size, *Test_Output; bool test_state;
         private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 			//Ana eksen doðrularini cizdir
 			Pen^ pen = gcnew Pen(Color::Black, 3.0f);
@@ -455,6 +581,20 @@ namespace CppCLRWinformsProjekt {
 			center_height = (int)(pictureBox1->Height / 2);
 			e->Graphics->DrawLine(pen, center_width, 0, center_width, pictureBox1->Height);
 			e->Graphics->DrawLine(pen, 0, center_height, pictureBox1->Width, center_height);
+
+			// paint the picture box according to the class of each sample
+			if (test_state) {
+				int i = 0;
+				for (int x = 0; x < pictureBox1->Width; x += Test_Sample_Size) {
+					for (int y = 0; y < pictureBox1->Height; y += Test_Sample_Size) {
+						int index = Test_Output[i];
+						SolidBrush^ brush = gcnew SolidBrush(Color::FromArgb(65, color[index].R, color[index].G, color[index].B));
+						e->Graphics->FillRectangle(brush, x, y, Test_Sample_Size, Test_Sample_Size);
+						i++;
+					}
+				}
+				test_state = false;
+			}
         }
         private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 			// Network is constructed
@@ -616,7 +756,7 @@ private: System::Void deltaToolStripMenuItem_Click(System::Object^ sender, Syste
 	//float c = 1.0f;
 	float totalErr;
 	float* tempSamples = new float[numSample * inputDim];
-	tempSamples = normalizeData(Samples, numSample, inputDim);
+	tempSamples = normalizeData(Samples, numSample, inputDim, mean_x, mean_y, std_x, std_y);
 
 	// clear chart
 	chart1->Series["Error"]->Points->Clear(); 
@@ -662,10 +802,11 @@ private: System::Void multiCategoryPerceptronToolStripMenuItem_Click(System::Obj
 }
 private: System::Void multiCategoryDeltaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	int step = 0; // number of iterations
-	//float c = 1.0f;
+	float maxErr = 1.0 /(Convert::ToInt32(comboBoxMaxError->Text)); // Allowed max error
+	int maxCycle = Convert::ToInt32(MaxCycle->Text);   // maximum cycle
 	float totalErr;
 	float* tempSamples = new float[numSample * inputDim];
-	tempSamples = normalizeData(Samples, numSample, inputDim);
+	tempSamples = normalizeData(Samples, numSample, inputDim, mean_x, mean_y, std_x, std_y);
 
 	// clear chart
 	chart1->Series["Error"]->Points->Clear();
@@ -680,9 +821,74 @@ private: System::Void multiCategoryDeltaToolStripMenuItem_Click(System::Object^ 
 		for (int i = 0; i < numSample; i++) {
 			draw_sample(tempSamples[i * inputDim + 0] + pictureBox1->Width / 2, -tempSamples[i * inputDim + 1] + pictureBox1->Height / 2, targets[i]);
 		}
+		
 		LineCiz(Weights, bias, numClass, 1.0);
-	} while (totalErr > 0.01 && step < 5000);
+	} while (totalErr > maxErr && step < maxCycle);
 	textBox1->Text = "Cycles: " + step + "     Total Error: " + totalErr;
+	
+	pictureBox1->Refresh();
+	for (int i = 0; i < numSample; i++) {
+		draw_sample(tempSamples[i * inputDim + 0] * 100 + pictureBox1->Width / 2, -tempSamples[i * inputDim + 1] * 100 + pictureBox1->Height / 2, targets[i]);
+	}
+	for (int b = 0; b < numClass; b++) {
+		bias[b] = bias[b] * 100;
+	}
+	LineCiz(Weights, bias, numClass, 1.0);
+}
+
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (Weights)
+		delete[] Weights;
+	if (Samples)
+		delete[] Samples;
+	if (targets)
+		delete[] targets;
+	if (bias)
+		delete[] bias;
+	if (tempsamples)
+		delete[] tempsamples;
+
+	numClass = 0;
+	numSample = 0;
+	mean_x = 0;
+	mean_y = 0;
+	std_x = 0;
+	std_y = 0;
+	pictureBox1->Refresh();
+	chart1->Series["Error"]->Points->Clear();
+	textBox1->Text = "";
+}
+private: System::Void testToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	test_state = true;
+	int i = 0;
+	for (int x = 0; x < pictureBox1->Width; x += Test_Sample_Size) {
+		for (int y = 0; y < pictureBox1->Height; y += Test_Sample_Size) {
+			double test_x = x + (Test_Sample_Size / 2);
+			double test_y = y + (Test_Sample_Size / 2);
+
+			//Converting to graph scale
+			test_x = test_x - (pictureBox1->Width / 2);
+			test_y = (pictureBox1->Height / 2) - test_y;
+
+			//normalizing data
+			test_x = ((double)(test_x)-mean_x) / std_x;
+			test_y = ((double)(test_y)-mean_y) / std_y;
+
+			float* data;
+			/*data.X.push_back(test_x); data.X.push_back(test_y); data.class_id = 0;
+
+			network->Feed_Forward(data);
+			Matrix<double> output_layer = network->get_output_layer(); */
+			int index;
+			for (index = 0; index < numClass; index++) {
+				if (index == targets[numSample-1]) break;
+			}
+			Test_Output[i] = index;
+			i++;
+		}
+	}
+	
+	pictureBox1->Refresh();
 }
 };
 }

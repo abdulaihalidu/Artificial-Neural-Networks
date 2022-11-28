@@ -15,7 +15,7 @@ double* update_weight_discrete(double* Weights, double* SamplesArray, int size, 
 double sDerivative(double out);
 double sDerivative(double out);
 
-float* normalizeData(float* Weights, int numSample, int inputDim);
+float* normalizeData(float* Samples, int numSample, int inputDim, double mean_x, double mean_y, double std_x, double std_y);
 
 double bipolar_continous_activation_fun(double net);
 
@@ -24,7 +24,6 @@ float perceptronTraining(float* Samples, float* Weights, float* targets, float* 
 float deltaTraining(float* Samples, float* Weights, float* targets, float* bias, int numSample, int inputDim);
 float multiPerceptronTraining(float* Samples, float* Weights, float* targets, float* bias, int numSample, int inputDim, int numClass);
 float multiDeltaTraining(float* Samples, float* Weights, float* targets, float* bias, int numSample, int inputDim, int numClass);
-
 
 
 
