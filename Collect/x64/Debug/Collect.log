@@ -1,56 +1,66 @@
 ﻿  pch.cpp
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(747,132): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(747,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(747,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(772,139): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(772,103): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(772,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(797,131): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(797,95): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(797,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(805,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(822,139): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(822,103): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(822,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(831,150): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(831,114): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(831,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(877,11): warning C4101: 'data': unreferenced local variable
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(21,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(60,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(61,50): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(117,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(162,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(170,14): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(176,60): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(178,45): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(209,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(259,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(266,15): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(273,69): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(275,45): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\pch.cpp(134): warning C4700: uninitialized local variable 'totalErr' used
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(125,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(139,132): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(139,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(139,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(146,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(162,141): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(162,105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(162,48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(171,152): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(171,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(171,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(847,132): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(847,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(847,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(872,139): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(872,103): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(872,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(897,131): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(897,95): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(897,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(951,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(952,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   AssemblyInfo.cpp
   CppCLR_WinformsProjekt.cpp
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(747,132): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(747,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(747,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(772,139): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(772,103): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(772,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(797,131): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(797,95): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(797,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(805,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(822,139): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(822,103): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(822,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(831,150): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(831,114): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(831,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(877,11): warning C4101: 'data': unreferenced local variable
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(125,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(139,132): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(139,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(139,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(146,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(162,141): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(162,105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(162,48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(171,152): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(171,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(171,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(847,132): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(847,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(847,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(872,139): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(872,103): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(872,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(897,131): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(897,95): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(897,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(951,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Form1.h(952,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Form1.cpp
   Process.cpp
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(46,31): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(81,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(82,50): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(138,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(183,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(191,15): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(197,60): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(199,44): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(230,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(280,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(287,15): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(294,71): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(296,44): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
   Generating Code...
+D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\Collect\Process.cpp(155): warning C4700: uninitialized local variable 'totalErr' used
   AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Collect.vcxproj -> D:\KTÜ\4. Yıl\Artificial Neural Networks\Artificial-Neural-Networks\x64\Debug\Collect.exe

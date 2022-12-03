@@ -58,24 +58,122 @@ namespace CppCLRWinformsProjekt {
 		/// <summary>
 		/// User Defined Variables
 		int  numClass = 0, numSample = 0, inputDim = 2;
-		float *Samples, *targets, *Weights, *bias;
+		float* Samples, *tempSamples, *targets, *Weights, *bias;
 		cli::array<Color>^ color;
 		double mean_x;
 		double mean_y;
 		double std_x;
 		double std_y;
+		float* tempsamples;   // array to hold normalized data
+		
 	private: System::Windows::Forms::ToolStripMenuItem^ testToolStripMenuItem;
-		   float* tempsamples;   // array to hold normalized data
 
 		// member function to make initialization for testing
 		void Initialize() {
 			color = gcnew cli::array<Color>(10);
 			color[0] = Color::Black; color[1] = Color::Red; color[2] = Color::Blue; color[3] = Color::Green; color[4] = Color::Yellow;
-			color[5] = Color::Cyan; color[6] = Color::Indigo; color[7] = Color::Purple; color[8] = Color::Firebrick; color[9] = Color::OrangeRed;
+			color[5] = Color::Orange; color[6] = Color::YellowGreen; color[7] = Color::Purple; color[8] = Color::Firebrick; color[9] = Color::OrangeRed;
 
 			Test_Sample_Size = 4;
 			Test_Output = new int[((pictureBox1->Width / Test_Sample_Size) + 1) * ((pictureBox1->Height / Test_Sample_Size) + 1)];
 
+		}
+		// member function to normalize data
+		void normalize() {
+			double Mx = 0;
+			double My = 0;
+			double number = 0;
+			double x_sDeviation = 0;
+			double y_sDeviation = 0;
+			for (int i = 0; i <= ((numSample * inputDim)) - 2; (i += inputDim)) {
+				Mx += Samples[i];
+				My += Samples[i + 1];
+				number++;
+			}
+			Mx = (Mx) / number;
+			My = (My) / number;
+
+			for (int i = 0; i <= ((numSample * inputDim) - 2); (i += inputDim)) {
+				x_sDeviation += pow((tempSamples[i] - Mx), 2);
+				y_sDeviation += pow((tempSamples[i + 1] - My), 2);
+			}
+
+			x_sDeviation = sqrt(x_sDeviation / number);
+			y_sDeviation = sqrt(y_sDeviation / number);
+
+			std_x = x_sDeviation;
+			std_y = y_sDeviation;
+			mean_x = Mx;
+			mean_y = My;
+		}
+
+		// member function for testing
+		int classifier(float* Sample) {
+			double* net = new double[numClass];
+			float* output = new float[numClass];
+			int predicted; 
+			double maxNet = - std::numeric_limits<double>::infinity();
+
+			for (int n = 0; n < numClass; n++) {
+				net[n] = 0.0;
+			}
+			for (int n = 0; n < numClass; n++) {
+				for (int j = 0; j < inputDim; j++) {
+					net[n] += Weights[2 * n + j] * Sample[j];
+				}
+				net[n] += bias[n];
+				output[n] = bipolar_continous_activation_fun(net[n]);
+			}
+			// check for the neuron with the max output and assign the given sample to its class
+			for (int k = 0; k < numClass; k++) {
+				if (output[k] >= maxNet) {
+					maxNet = output[k];
+					predicted = k;
+				}
+			}
+			return predicted;
+		}
+		// member function to display samples
+		void showSamples() {
+			for (int i = 0; i < numSample; i++) {
+				draw_sample(Samples[i * inputDim + 0] + pictureBox1->Width / 2, -Samples[i * inputDim + 1] + pictureBox1->Height / 2, targets[i]);
+			}
+		}
+
+		// member function to train the network
+		void train(void) {
+			int step = 0; // number of iterations
+			float maxErr = 1.0 / (Convert::ToInt32(comboBoxMaxError->Text)); // Allowed max error
+			int maxCycle = Convert::ToInt32(MaxCycle->Text);   // maximum cycle
+			float totalErr;
+			tempSamples = normalizeData(Samples, numSample, inputDim);
+			float* b = new float[numClass];
+			// clear chart
+			chart1->Series["Error"]->Points->Clear();
+
+			do {
+				step++;
+				totalErr = multiDeltaTraining(tempSamples, Weights, targets, bias, numSample, inputDim, numClass);
+
+				pictureBox1->Refresh();
+				chart1->Series["Error"]->Points->AddXY(step, totalErr);
+				// redraw samples
+				for (int i = 0; i < numSample; i++) {
+					draw_sample(tempSamples[i * inputDim + 0] + pictureBox1->Width / 2, -tempSamples[i * inputDim + 1] + pictureBox1->Height / 2, targets[i]);
+				}
+
+				LineCiz(Weights, bias, numClass, 1.0);
+			} while (totalErr > maxErr && step < maxCycle);
+			textBox1->Text = "Cycles: " + step + "     Total Error: " + totalErr;
+
+			pictureBox1->Refresh();
+			for (int i = 0; i < numSample; i++) {
+				draw_sample(tempSamples[i * inputDim + 0] * 100 + pictureBox1->Width / 2, -tempSamples[i * inputDim + 1] * 100 + pictureBox1->Height / 2, targets[i]);
+			}
+			for (int i = 0; i < numClass; i++) {
+				b[i] = bias[i] * 100;
+			}
+			LineCiz(Weights, b, numClass, 1.0);
 		}
 
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
@@ -555,7 +653,9 @@ namespace CppCLRWinformsProjekt {
 					label = numLabel - 1; //Dögüler 0 dan baþladýðýndan, bir eksiði alýnmýþtýr
 					if (numSample == 0) { //Dinamik alýnan ilk örnek için sadece
 						numSample = 1;  
-						Samples = new float[numSample * inputDim]; targets = new float[numSample];
+						Samples = new float[numSample * inputDim]; 
+						targets = new float[numSample];
+						tempSamples = new float[numSample * inputDim];
 						for (int i = 0; i < inputDim; i++)
 							Samples[i] = x[i];
 						targets[0] = float(label);
@@ -756,7 +856,7 @@ private: System::Void deltaToolStripMenuItem_Click(System::Object^ sender, Syste
 	//float c = 1.0f;
 	float totalErr;
 	float* tempSamples = new float[numSample * inputDim];
-	tempSamples = normalizeData(Samples, numSample, inputDim, mean_x, mean_y, std_x, std_y);
+	tempSamples = normalizeData(Samples, numSample, inputDim);
 
 	// clear chart
 	chart1->Series["Error"]->Points->Clear(); 
@@ -801,39 +901,7 @@ private: System::Void multiCategoryPerceptronToolStripMenuItem_Click(System::Obj
 
 }
 private: System::Void multiCategoryDeltaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	int step = 0; // number of iterations
-	float maxErr = 1.0 /(Convert::ToInt32(comboBoxMaxError->Text)); // Allowed max error
-	int maxCycle = Convert::ToInt32(MaxCycle->Text);   // maximum cycle
-	float totalErr;
-	float* tempSamples = new float[numSample * inputDim];
-	tempSamples = normalizeData(Samples, numSample, inputDim, mean_x, mean_y, std_x, std_y);
-
-	// clear chart
-	chart1->Series["Error"]->Points->Clear();
-
-	do {
-		step++;
-		totalErr = multiDeltaTraining(tempSamples, Weights, targets, bias, numSample, inputDim, numClass);
-
-		pictureBox1->Refresh();
-		chart1->Series["Error"]->Points->AddXY(step, totalErr);
-		// redraw samples
-		for (int i = 0; i < numSample; i++) {
-			draw_sample(tempSamples[i * inputDim + 0] + pictureBox1->Width / 2, -tempSamples[i * inputDim + 1] + pictureBox1->Height / 2, targets[i]);
-		}
-		
-		LineCiz(Weights, bias, numClass, 1.0);
-	} while (totalErr > maxErr && step < maxCycle);
-	textBox1->Text = "Cycles: " + step + "     Total Error: " + totalErr;
-	
-	pictureBox1->Refresh();
-	for (int i = 0; i < numSample; i++) {
-		draw_sample(tempSamples[i * inputDim + 0] * 100 + pictureBox1->Width / 2, -tempSamples[i * inputDim + 1] * 100 + pictureBox1->Height / 2, targets[i]);
-	}
-	for (int b = 0; b < numClass; b++) {
-		bias[b] = bias[b] * 100;
-	}
-	LineCiz(Weights, bias, numClass, 1.0);
+	train();
 }
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -860,6 +928,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void testToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	test_state = true;
+	normalize();
 	int i = 0;
 	for (int x = 0; x < pictureBox1->Width; x += Test_Sample_Size) {
 		for (int y = 0; y < pictureBox1->Height; y += Test_Sample_Size) {
@@ -874,21 +943,24 @@ private: System::Void testToolStripMenuItem_Click(System::Object^ sender, System
 			test_x = ((double)(test_x)-mean_x) / std_x;
 			test_y = ((double)(test_y)-mean_y) / std_y;
 
-			float* data;
+			float* dataPoint = new float[inputDim];
 			/*data.X.push_back(test_x); data.X.push_back(test_y); data.class_id = 0;
 
 			network->Feed_Forward(data);
 			Matrix<double> output_layer = network->get_output_layer(); */
-			int index;
-			for (index = 0; index < numClass; index++) {
-				if (index == targets[numSample-1]) break;
-			}
-			Test_Output[i] = index;
+			dataPoint[0] = test_x;
+			dataPoint[1] = test_y;
+	
+			Test_Output[i] = classifier(dataPoint);
 			i++;
 		}
 	}
 	
 	pictureBox1->Refresh();
+	showSamples();
 }
 };
+
+
 }
+
